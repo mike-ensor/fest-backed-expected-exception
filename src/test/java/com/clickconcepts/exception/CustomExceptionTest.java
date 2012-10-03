@@ -70,4 +70,12 @@ public class CustomExceptionTest {
         exception.hasMessage("Message").hasCode(1234);
         throw new CustomException("Message", 123);
     }
+
+    @Test
+    @ExpectedFailure
+    public void getMessageAndCode_bothFail() {
+        exception.hasMessage("Message2").hasCode(1234);
+        throw new CustomException("Message", 123);
+    }
+
 }

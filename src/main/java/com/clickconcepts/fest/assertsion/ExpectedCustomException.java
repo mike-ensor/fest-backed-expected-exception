@@ -2,7 +2,7 @@ package com.clickconcepts.fest.assertsion;
 
 import com.clickconcepts.exception.CustomExceptionAssert;
 
-public class ExpectedCustomException extends ExpectedException {
+public class ExpectedCustomException extends AbstractExpectedException<ExpectedCustomException> {
 
     private Integer code;
 
@@ -10,19 +10,14 @@ public class ExpectedCustomException extends ExpectedException {
         return new ExpectedCustomException();
     }
 
-    private ExpectedCustomException() {
-        super();
-    }
-
-    public ExpectedException hasCode(int code) {
+    /**
+     * Checks to see if the CustomException has the specified code
+     * @param code int
+     * @return AbstractExpectedException
+     */
+    public AbstractExpectedException hasCode(int code) {
         markExpectedException();
         this.code = code;
-        return this;
-    }
-
-    @Override
-    public ExpectedCustomException hasMessage(String message) {
-        super.hasMessage(message);
         return this;
     }
 
@@ -32,13 +27,11 @@ public class ExpectedCustomException extends ExpectedException {
 
     @Override
     protected void checkAssertions(Exception e) {
-        // check existing exceptions
+        // check parent's exceptions
         super.checkAssertions(e);
 
         if (getCode() != null) {
             CustomExceptionAssert.assertThat(e).hasCode(code);
         }
-
     }
-
 }
