@@ -78,4 +78,17 @@ public class CustomExceptionTest {
         throw new CustomException("Message", 123);
     }
 
+    @Test
+    public void isInstanceOf() {
+        exception.isInstanceOf(CustomException.class).hasMessage("Message").hasCode(123);
+        throw new CustomException("Message", 123);
+    }
+
+    @Test
+    @ExpectedFailure
+    public void isInstanceOf_notRightType() {
+        exception.isInstanceOf(IllegalAccessError.class).hasMessage("Message").hasCode(123);
+        throw new CustomException("Message", 123);
+    }
+
 }

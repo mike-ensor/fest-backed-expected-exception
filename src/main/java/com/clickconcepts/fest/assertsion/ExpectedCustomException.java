@@ -12,6 +12,7 @@ public class ExpectedCustomException extends AbstractExpectedException<ExpectedC
 
     /**
      * Checks to see if the CustomException has the specified code
+     *
      * @param code int
      * @return AbstractExpectedException
      */

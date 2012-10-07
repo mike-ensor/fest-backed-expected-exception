@@ -6,7 +6,6 @@
 /*.ipr
 /*.iws
 /.idea
-.gradle
 build
-build.gradle
+/.gradle
 /classes

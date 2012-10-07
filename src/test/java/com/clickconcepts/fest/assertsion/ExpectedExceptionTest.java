@@ -20,7 +20,7 @@ public class ExpectedExceptionTest {
 
     @Test
     public void assertSimpleExceptionAssert_exceptionIsOfType() {
-        exception.instanceOf(SimpleException.class);
+        exception.isInstanceOf(SimpleException.class);
         throw new SimpleException("this is an exception");
     }
 
@@ -37,7 +37,7 @@ public class ExpectedExceptionTest {
 
     @Test
     public void assertSimpleExceptionAssert_exceptionIsOfType_subClass() {
-        exception.instanceOf(SimpleException.class);
+        exception.isInstanceOf(SimpleException.class);
         throw new SubClassSimpleException("Subclass exception");
     }
 
@@ -57,7 +57,7 @@ public class ExpectedExceptionTest {
     @Test
     @ExpectedFailure
     public void assertSimpleExceptionAssert_Cause() {
-        exception.instanceOf(SimpleException.class).hasNoCause();
+        exception.isInstanceOf(SimpleException.class).hasNoCause();
         throw new SimpleException("this is an exception", new Throwable("Some deep down cause"));
     }
 

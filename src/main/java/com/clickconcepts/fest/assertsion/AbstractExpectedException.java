@@ -23,7 +23,9 @@ public abstract class AbstractExpectedException<CHILD extends AbstractExpectedEx
         return new ExpectedExceptionStatement(base);
     }
 
-    /********** FEST Exception API  ***********************************************************/
+    /**
+     * ******* FEST Exception API  **********************************************************
+     */
 
     @SuppressWarnings("unchecked")
     public CHILD isExactlyInstanceOf(Class<? extends Throwable> type) {
@@ -33,7 +35,7 @@ public abstract class AbstractExpectedException<CHILD extends AbstractExpectedEx
     }
 
     @SuppressWarnings("unchecked")
-    public CHILD instanceOf(Class<? extends Throwable> type) {
+    public CHILD isInstanceOf(Class<? extends Throwable> type) {
         markExpectedException();
         this.expectedExceptionInstanceType = type;
         return (CHILD) this;
@@ -60,7 +62,9 @@ public abstract class AbstractExpectedException<CHILD extends AbstractExpectedEx
         return (CHILD) this;
     }
 
-    /******************************************************************************************/
+    /**
+     * **************************************************************************************
+     */
 
     protected void checkAssertions(Exception e) {
         if (getExactlyType() != null) {
