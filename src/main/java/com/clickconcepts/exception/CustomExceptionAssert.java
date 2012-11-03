@@ -4,7 +4,7 @@ import org.fest.assertions.api.AbstractAssert;
 import org.fest.assertions.core.WritableAssertionInfo;
 
 /**
- * FEST acception matcher for CustomException
+ * FEST exception matcher for CustomException
  */
 public class CustomExceptionAssert extends AbstractAssert<CustomExceptionAssert, Exception> {
 
